@@ -1,32 +1,49 @@
 class Queue:
 
     def __init__(self, size):
-        self.queue = []  # Initializing a queue
+        self.queue = [None] * size  # Initializing a queue
         self.size = size
+        self.front = -1
+        self.rear = -1
 
     def enqueue(self, num):
-        if(len(self.queue) == self.size):  # Checking if the queue is full
-            print("Queue is full or cant insert right now")
+        if(self.rear == self.size-1):  # Checking if the queue is full
+            print("Queue is full or can't insert right now")
             return None
+        elif(self.front == -1):
+            self.front = 0
+            self.rear = 0
+        else:
+            self.rear += 1
 
-        self.queue.append(num)  # If not full, add item
+        self.queue[self.rear] = num  # If not full, add item
         print(self.queue)
+        return
 
     def dequeue(self):
-        if(len(self.queue) == 0):  # Checking if queue is empty
+        if(self.front == -1):  # Checking if queue is empty
             print("Queue is empty")
             return None
-
-        # returning item at front and removing it, if not empty
-        print(self.queue[0])
-        return self.queue.pop(0)
+        elif(self.front == self.rear):
+            temp = self.queue[self.front]
+            self.queue[self.front] = None
+            self.front = -1
+            self.rear = -1
+            print(self.queue)
+            return temp
+        else:
+            temp = self.queue[self.front]
+            self.queue[self.front] = None
+            self.front += 1
+            print(self.queue)
+            return temp
 
     def peek(self):
-        if(len(self.queue) == 0):  # Checking if queue is empty
+        if(self.front == -1):  # Checking if queue is empty
             print("Queue is empty")
             return None
 
-        print(self.queue[0])  # If not return item at front
+        print(self.queue[self.front])  # If not return item at front
 
 
 queue_obj = Queue(5)
@@ -39,6 +56,8 @@ queue_obj.enqueue(6)
 queue_obj.dequeue()
 queue_obj.dequeue()
 queue_obj.dequeue()
+queue_obj.peek()
+
 queue_obj.dequeue()
 queue_obj.peek()
 queue_obj.dequeue()
