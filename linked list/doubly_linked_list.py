@@ -1,11 +1,13 @@
 class Node:
-    def __init__(self, val):
+    def __init__(self, val):  # Each node has a val, pointer to point both next and prev
         self.val = val
         self.prev = None
         self.next = None
 
+# Everything is similar to singly linked list except that we need to take care of prev pointer in every operation
 
-class Doubly_Linked_List:
+
+class Doubly_Linked_List:  # Every list has a head
     def __init__(self):
         self.head = None
 

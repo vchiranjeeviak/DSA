@@ -6,6 +6,9 @@ class Node:
         self.val = val
         self.next = None
 
+# In circular linked list, we keep track of the tail of the list.
+# IF we want to traverse, we can do that from tail.next
+
 
 class Circular_Linked_List:
     def __init__(self):
