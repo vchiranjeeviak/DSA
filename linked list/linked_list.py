@@ -1,6 +1,3 @@
-from logging.config import valid_ident
-
-
 class Node:
 
     def __init__(self, val):
