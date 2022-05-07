@@ -1,4 +1,4 @@
-class Node:
+class BinaryTreeNode:  # A binary tree is a tree in which every node can have atmost 2 children
     def __init__(self, val):
         self.val = val
         self.left = None
@@ -26,11 +26,11 @@ class Node:
         print(str(self.val)+"->", end=" ")
 
 
-root = Node(1)
-root.left = Node(2)
-root.right = Node(3)
-root.right.right = Node(4)
-root.right.left = Node(5)
+root = BinaryTreeNode(1)
+root.left = BinaryTreeNode(2)
+root.right = BinaryTreeNode(3)
+root.right.right = BinaryTreeNode(4)
+root.right.left = BinaryTreeNode(5)
 print('Inorder traversal:')
 root.inorder()
 print()
